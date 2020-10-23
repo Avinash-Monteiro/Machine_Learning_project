@@ -8,4 +8,5 @@ Basically any Jupyter notebook starts with Data Discription, Exploratory Data An
 
 ![alt test](https://www.edureka.co/blog/wp-content/uploads/2018/12/Classification-Machine-Learning-Algorithms-Edureka.png)
 
-### You will find the use above models used in detail in each of my Project Notebooks. 
+### You will find the above models in action when you go through my jupyter notebooks.
+
