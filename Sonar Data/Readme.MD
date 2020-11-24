@@ -71,7 +71,7 @@ To get the best weights, you usually maximize the  **log-likelihood function (LL
 
 ### Classification Performance
 
-Binary classification has four possible  [types of results](https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative):
+Binary classification has four possible  types of results:
 
 1.  **True negatives:**  correctly predicted negatives (zeros)
 2.  **True positives:**  correctly predicted positives (ones)
