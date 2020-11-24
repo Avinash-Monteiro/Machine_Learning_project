@@ -50,3 +50,41 @@ This image shows the sigmoid function (or S-shaped curve) of some variable 𝑥:
 [![Sigmoid Function](https://files.realpython.com/media/log-reg-1.e32deaa7cbac.png)](https://files.realpython.com/media/log-reg-1.e32deaa7cbac.png)
 
 The sigmoid function has values very close to either 0 or 1 across most of its domain. This fact makes it suitable for application in classification methods.
+
+### Problem Formulation
+
+In this tutorial, you’ll see an explanation for the common case of logistic regression applied to binary classification. When you’re implementing the logistic regression of some dependent variable 𝑦 on the set of independent variables 𝐱 = (𝑥₁, …, 𝑥ᵣ), where 𝑟 is the number of predictors ( or inputs), you start with the known values of the predictors 𝐱ᵢ and the corresponding actual response (or output) 𝑦ᵢ for each observation 𝑖 = 1, …, 𝑛.
+
+Your goal is to find the  **logistic regression function**  𝑝(𝐱) such that the  **predicted responses**  𝑝(𝐱ᵢ) are as close as possible to the  **actual response**  𝑦ᵢ for each observation 𝑖 = 1, …, 𝑛. Remember that the actual response can be only 0 or 1 in binary classification problems! This means that each 𝑝(𝐱ᵢ) should be close to either 0 or 1. That’s why it’s convenient to use the sigmoid function.
+
+Once you have the logistic regression function 𝑝(𝐱), you can use it to predict the outputs for new and unseen inputs, assuming that the underlying mathematical dependence is unchanged.
+
+### Methodology
+Logistic regression is a linear classifier, so you’ll use a linear function 𝑓(𝐱) = 𝑏₀ + 𝑏₁𝑥₁ + ⋯ + 𝑏ᵣ𝑥ᵣ, also called the  **logit**. The variables 𝑏₀, 𝑏₁, …, 𝑏ᵣ are the  **estimators**  of the regression coefficients, which are also called the   **coefficients**.
+
+The logistic regression function 𝑝(𝐱) is the sigmoid function of 𝑓(𝐱): 𝑝(𝐱) = 1 / (1 + exp(−𝑓(𝐱)). As such, it’s often close to either 0 or 1. The function 𝑝(𝐱) is often interpreted as the predicted probability that the output for a given 𝐱 is equal to 1. Therefore, 1 − 𝑝(𝑥) is the probability that the output is 0.
+
+Logistic regression determines the best predicted weights 𝑏₀, 𝑏₁, …, 𝑏ᵣ such that the function 𝑝(𝐱) is as close as possible to all actual responses 𝑦ᵢ, 𝑖 = 1, …, 𝑛, where 𝑛 is the number of observations. The process of calculating the best weights using available observations is called  **model training**  or  **fitting**.
+
+To get the best weights, you usually maximize the  **log-likelihood function (LLF)**  for all observations 𝑖 = 1, …, 𝑛. This method is called the  **maximum likelihood estimation**  and is represented by the equation LLF = Σᵢ(𝑦ᵢ log(𝑝(𝐱ᵢ)) + (1 − 𝑦ᵢ) log(1 − 𝑝(𝐱ᵢ))).
+
+
+### Classification Performance
+
+Binary classification has four possible  [types of results](https://developers.google.com/machine-learning/crash-course/classification/true-false-positive-negative):
+
+1.  **True negatives:**  correctly predicted negatives (zeros)
+2.  **True positives:**  correctly predicted positives (ones)
+3.  **False negatives:**  incorrectly predicted negatives (zeros)
+4.  **False positives:**  incorrectly predicted positives (ones)
+
+You usually evaluate the performance of your classifier by comparing the actual and predicted outputs and counting the correct and incorrect predictions.
+
+The most straightforward indicator of  **classification accuracy**  is the ratio of the number of correct predictions to the total number of predictions (or observations). Other indicators of binary classifiers include the following:
+
+-   **The  positive predictive value**  is the ratio of the number of true positives to the sum of the numbers of true and false positives.
+-   **The  negative predictive value)**  is the ratio of the number of true negatives to the sum of the numbers of true and false negatives.
+-   **The  sensitivity**  (also known as recall or true positive rate) is the ratio of the number of true positives to the number of actual positives.
+-   **The  specificity**  (or true negative rate) is the ratio of the number of true negatives to the number of actual negatives.
+
+The most suitable indicator depends on the problem of interest. 
